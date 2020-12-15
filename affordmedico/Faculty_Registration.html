@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/javascript">
+        
+function validName()
+{
+    var n1= document.getElementById("name").value;
+    var n=new RegExp("[a-zA-Z]+(.)+");
+    if(n.test(n1))
+    {
+        document.getElementById("sname").style="color:green";
+        document.getElementById("sname").innerHTML="Valid Name";
+    }
+    else
+    {
+        document.getElementById("sname").style="color:Red";
+        document.getElementById("sname").innerHTML="Invalid Name";
+    }
+}
+
+function validId()
+{
+    var I1= document.getElementById("id").value;
+    var i0=new RegExp("[a-zA-Z]+(.)+");
+    if(i0.test(I1))
+    {
+        document.getElementById("sid").style="color:green";
+        document.getElementById("sid").innerHTML="Valid ID";
+    }
+    else
+    {
+        document.getElementById("sid").style="color:Red";
+        document.getElementById("sid").innerHTML="Invalid ID";
+    }
+}
+
+function validUser()
+{
+    var unamee= document.getElementById("uname").value;
+    var u=new RegExp("[a-z0-9]+");
+    if(u.test(unamee))
+    {
+        document.getElementById("suname").style="color:green";
+        document.getElementById("suname").innerHTML="Valid Username";
+    }
+    else
+    {
+        document.getElementById("suname").style="color:Red";
+        document.getElementById("suname").innerHTML="Invalid Username";
+    }
+}
+
+function validPassword()
+{
+    var pass = document.getElementById("pwd").value;
+    var p=new RegExp("[A-Za-z0-9]{8,12}");
+    if(p.test(pass))
+    {
+        document.getElementById("spwd").style="color:green";
+        document.getElementById("spwd").innerHTML="Valid Password";
+    }
+    else if (pass=="")
+    {
+        document.getElementById("scnfpwd").style="color:Red";
+        document.getElementById("scnfpwd").innerHTML="Password cannot be empty";
+    }
+    else
+    {
+        document.getElementById("spwd").style="color:Red";
+        document.getElementById("spwd").innerHTML="Invalid Password";
+    }
+}
+
+function validConfirmPassword()
+{
+    var pass= document.getElementById("pwd").value;
+    var pass123 = document.getElementById("cnfpwd").value;
+    if(pass==pass123)
+    {
+        document.getElementById("scnfpwd").style="color:green";
+        document.getElementById("scnfpwd").innerHTML="Password is same";
+    }
+    else
+    {
+        document.getElementById("scnfpwd").style="color:Red";
+        document.getElementById("scnfpwd").innerHTML="Password is different";
+    }
+}
+
+function validPhone()
+{
+    var phone= document.getElementById("phno").value;
+    var p=new RegExp("^[6789][0-9]{9}");
+    if(p.test(phone))
+    {
+        document.getElementById("sphno").style="color:green";
+        document.getElementById("sphno").innerHTML="Valid Phone Number";
+        document.getElementById("reg").disabled=false;
+    }
+    else
+    {
+        document.getElementById("sphno").style="color:Red";
+        document.getElementById("sphno").innerHTML="Invalid Phone Number";
+    }
+}
+function validEmail()
+{
+    var email= document.getElementById("Email").value;
+    var e=new RegExp("^[a-zA-Z][0-9a-zA-Z]+[@](gmail|yahoo|hotmail|live|GMAIL|YAHOO|HOTMAIL|LIVE)[.](com|in|COM|IN)");
+    if(e.test(email))
+    {
+        document.getElementById("semail").style="color:green";
+        document.getElementById("semail").innerHTML="Valid E-Mail Id";
+
+    }
+    else
+    {
+        document.getElementById("semail").style="color:Red";
+        document.getElementById("semail").innerHTML="Invalid E-Mail Id";
+    }
+}    
+</script>
+
+<title>Faculty Registration</title>
+<link rel="stylesheet" type="text/css" href="CSS/login.css">
+<link rel="javascript" type="text/js" href="JS/signup.js">
+</head>
+<body>
+    <center>
+  <a href="index.html"><h2 class="underlineHover">Home</h2></a>
+  <a href="Student_Login.html"><h2 class="underlineHover">Student Login</h2></a>
+  <a href="Faculty_Login.html"><h2 class="underlineHover">Faculty Login</h2></a>
+  <a href="Student_Registration.html" ><h2 class="underlineHover">Student Registration</h2></a>
+  <a class="active" href="#"><h2 class="active">Faculty Registration</h2></a>
+  </center>
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <a href="Student_Registration.html"><h2 class="underlineHover">Student Registration</h2></a>
+    <a class="active" href="#"><h2 class="active">Faculty Registration</h2></a>
+    
+   
+<div class="user">
+
+    <header class="user__header">
+        <!--<img src="logos.gif" alt="" />-->
+        <h1 class="user__title"></h1>
+    </header>
+    
+    <form class="form" action="FacultyRegistration" method="post">
+
+        <div class="form__group">
+            <input type="text" placeholder="Faculty Name" class="form__input" id="name" onblur="validName()" autofocus /><br>
+        </div>
+        <div>
+            <span id="sname"></span>
+        </div>
+        
+        <div class="form__group">
+            <input type="text" placeholder="Faculty ID" class="form__input" id="id" onblur="validId()" required/><br>
+        </div>
+        <div>
+            <span id="sid"></span>
+        </div>
+        
+        <div class="form__group">
+            <input type="text" placeholder="Username" class="form__input" id="uname" onblur="validUser()" required/><br>
+        </div>
+        <div>
+            <span id="suname"></span>
+        </div>
+        
+        <div class="form__group">
+            <input type="Password" placeholder="Password" class="form__input" id="pwd" onblur="validPassword()" required/><br>    
+        </div>
+        <div>
+            <span id="spwd"></span>
+        </div>
+        
+        <div class="form__group">
+            <input type="Password" placeholder="Confirm Password" class="form__input" id="cnfpwd" onblur="validConfirmPassword()" required/><br>
+        </div>
+        <div>
+            <span id="scnfpwd"></span>
+        </div>
+        
+        <div class="form__group">
+            <input type="text" placeholder="College Name" class="form__input" id="collname" required/><br>
+        </div>
+        <div>
+            <span id="scollname"></span>
+        </div>
+        
+        <div class="form__group">
+            <input type="Email" placeholder="Email" class="form__input" id="Email" onblur="validEmail()" required/><br>
+        </div>
+        <div>
+            <span id="semail"></span>
+        </div>
+        
+        <div class="form__group">
+            <input type="text" placeholder="Phone Number" class="form__input" id="phno" onblur="validPhone()" required/><br>
+        </div>
+        <div>
+            <span id="sphno"></span>
+        </div>
+        
+        <div>
+        <input type="submit" name="Register" class="button" value="Register" id="reg" disabled="true">
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
